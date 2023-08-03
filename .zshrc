@@ -139,5 +139,5 @@ local p_gcp="[gcp:%2v]"
 local p_k8s="k8s:%3v"
 
 # プロンプトカスタマイズ
-PROMPT='[@%n%f%F{green}%~%f]'${GIT_PROMPT_COLOR}$p_git'%f$p_gcp %{$fg[cyan]%}($p_k8s)%{$reset_color%}
+PROMPT='[%F{cyan}@%n%f%F{green}%~%f]'${GIT_PROMPT_COLOR}$p_git'%f$p_gcp %{$fg[cyan]%}($p_k8s)%{$reset_color%}
 $ '
