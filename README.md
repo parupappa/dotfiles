@@ -24,3 +24,4 @@ When adding a new file for management:
 # Reference
 
 - [shirakiya/dotfiles/zshrc](https://github.com/shirakiya/dotfiles/blob/main/zshrc)
+- [zsh-kubectl-prompt](https://github.com/superbrothers/zsh-kubectl-prompt)
