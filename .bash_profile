@@ -1,0 +1,1 @@
+/Users/annosukeyokoo/dotfiles/.bash_profile
