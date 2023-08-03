@@ -15,6 +15,10 @@ setopt correct
 # 文字の一部と認識する記号
 export WORDCHARS='*?_-[]~=&;!#$%^(){}<>'
 
+# カラーの有効化
+autoload -U colors
+colors
+
 # ------------------------------
 # complement settings
 # ------------------------------
