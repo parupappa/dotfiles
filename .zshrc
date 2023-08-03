@@ -96,12 +96,17 @@ zstyle ':vcs_info:*' actionformats '[%b|%a]'
 
 # gitのステータスに応じて色を変える関数
 set_git_prompt_color() {
-  if [[ $(git status --porcelain 2>/dev/null) = "" ]]; then
-    # ワーキングディレクトリがクリーンなら緑色
-    GIT_PROMPT_COLOR="%F{green}"
+  if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+    if [[ $(git status --porcelain 2>/dev/null) = "" ]]; then
+      # ワーキングディレクトリがクリーンなら緑色
+      GIT_PROMPT_COLOR="%F{green}"
+    else
+      # 変更があるなら赤色
+      GIT_PROMPT_COLOR="%F{magenta}"
+    fi
   else
-    # 変更があるなら赤色
-    GIT_PROMPT_COLOR="%F{red}"
+    # Gitリポジトリでない場合は、色をリセット
+    GIT_PROMPT_COLOR=""
   fi
 }
 
@@ -113,18 +118,26 @@ load_current_gcp_config() {
   fi
 }
 
+# kubernetes context
+load_current_k8s_context() {
+  K8S_CONTEXT=$(kubectl config current-context 2>/dev/null)
+}
+
 precmd() {
   set_git_prompt_color
   vcs_info
   load_current_gcp_config
+  load_current_k8s_context
   psvar=()
   psvar[1]=$vcs_info_msg_0_
   psvar[2]=$GCP_PROFILE
+  psvar[3]=$K8S_CONTEXT
 }
 
-local p_git="[%1v]"
+local p_git="%1v"
 local p_gcp="[gcp:%2v]"
+local p_k8s="k8s:%3v"
 
 # プロンプトカスタマイズ
-PROMPT='[%F{cyan}@%n%f%F{green}%~%f] '${GIT_PROMPT_COLOR}$p_git'%f $p_gcp
+PROMPT='[@%n%f%F{green}%~%f]'${GIT_PROMPT_COLOR}$p_git'%f$p_gcp %{$fg[cyan]%}($p_k8s)%{$reset_color%}
 $ '
