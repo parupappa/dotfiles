@@ -15,7 +15,6 @@ setopt correct
 # 文字の一部と認識する記号
 export WORDCHARS='*?_-[]~=&;!#$%^(){}<>'
 
-
 # ------------------------------
 # complement settings
 # ------------------------------
@@ -23,7 +22,7 @@ export WORDCHARS='*?_-[]~=&;!#$%^(){}<>'
 # zsh-completions
 # compinit の実行よりも前に記述する
 if [ -e ${HOMEBREW_DIR}/share/zsh-completions ]; then
-    fpath=(${HOMEBREW_DIR}/share/zsh-completions $fpath)
+  fpath=(${HOMEBREW_DIR}/share/zsh-completions $fpath)
 fi
 
 # 補完機能を有効にする
@@ -64,18 +63,18 @@ alias k='kubectl'
 # AWS CLIのプロファイル切り替え
 # ref: https://devops-blog.virtualtech.jp/entry/2022/01/28/145425
 function switch_aws() {
-    config=$(aws configure list-profiles | sort | fzf --reverse)
-    unset AWS_ACCESS_KEY_ID
-    unset AWS_SECRET_ACCESS_KEY
-    export AWS_PROFILE=$config
+  config=$(aws configure list-profiles | sort | fzf --reverse)
+  unset AWS_ACCESS_KEY_ID
+  unset AWS_SECRET_ACCESS_KEY
+  export AWS_PROFILE=$config
 }
 
 # Google Cloudのプロジェクト切り替え
 function switch_gcloud() {
   local selected=$(
-    gcloud config configurations list --format='table[no-heading](is_active.yesno(yes="[x]",no="[_]"), name, properties.core.account, properties.core.project.yesno(no="(unset)"))' \
-      | fzf --select-1 --query="$1" \
-      | awk '{print $2}'
+    gcloud config configurations list --format='table[no-heading](is_active.yesno(yes="[x]",no="[_]"), name, properties.core.account, properties.core.project.yesno(no="(unset)"))' |
+      fzf --select-1 --query="$1" |
+      awk '{print $2}'
   )
   if [ -n "$selected" ]; then
     gcloud config configurations activate $selected
@@ -90,11 +89,21 @@ function switch_gcloud() {
 autoload -Uz vcs_info
 setopt prompt_subst
 zstyle ':vcs_info:git:*' check-for-changes true
-zstyle ':vcs_info:git:*' stagedstr "%F{magenta}!"
-zstyle ':vcs_info:git:*' unstagedstr "%F{yellow}+"
-zstyle ':vcs_info:*' formats "%F{cyan}%c%u[%b]%f"
+zstyle ':vcs_info:git:*' stagedstr "!"
+zstyle ':vcs_info:git:*' unstagedstr "+"
+zstyle ':vcs_info:*' formats "%c%u[%b]"
 zstyle ':vcs_info:*' actionformats '[%b|%a]'
-precmd () { vcs_info }
+
+# gitのステータスに応じて色を変える関数
+set_git_prompt_color() {
+  if [[ $(git status --porcelain 2>/dev/null) = "" ]]; then
+    # ワーキングディレクトリがクリーンなら緑色
+    GIT_PROMPT_COLOR="%F{green}"
+  else
+    # 変更があるなら赤色
+    GIT_PROMPT_COLOR="%F{red}"
+  fi
+}
 
 # Google Cloud
 load_current_gcp_config() {
@@ -105,14 +114,17 @@ load_current_gcp_config() {
 }
 
 precmd() {
-    psvar=()
-    load_current_gcp_config
-    psvar[1]=$GCP_PROFILE
+  set_git_prompt_color
+  vcs_info
+  load_current_gcp_config
+  psvar=()
+  psvar[1]=$vcs_info_msg_0_
+  psvar[2]=$GCP_PROFILE
 }
 
-local p_gcp="[gcp:%1v]"
-
+local p_git="[%1v]"
+local p_gcp="[gcp:%2v]"
 
 # プロンプトカスタマイズ
-PROMPT='[%F{cyan}@%n%f%F{green}%~%f]%F{cyan}$vcs_info_msg_0_%f
+PROMPT='[%F{cyan}@%n%f%F{green}%~%f] '${GIT_PROMPT_COLOR}$p_git'%f $p_gcp
 $ '
