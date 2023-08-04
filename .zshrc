@@ -16,8 +16,7 @@ setopt correct
 export WORDCHARS='*?_-[]~=&;!#$%^(){}<>'
 
 # カラーの有効化
-autoload -U colors
-colors
+autoload -U colors && colors
 
 # ------------------------------
 # complement settings
