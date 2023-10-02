@@ -25,3 +25,4 @@ When adding a new file for management:
 
 - [shirakiya/dotfiles/zshrc](https://github.com/shirakiya/dotfiles/blob/main/zshrc)
 - [zsh-kubectl-prompt](https://github.com/superbrothers/zsh-kubectl-prompt)
+- [Brewfile で Homebrew のライブラリを管理しよう！](https://kakakakakku.hatenablog.com/entry/2020/09/17/124653)

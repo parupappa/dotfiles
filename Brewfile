@@ -1,8 +1,12 @@
+###############################################
+# tap: Homebrew に正式に登録されていないライブラリをインストールできる
 tap "aquasecurity/trivy"
 tap "aws/tap"
 tap "homebrew/bundle"
 tap "mas-cli/tap"
 tap "weaveworks/tap"
+###############################################
+# brew: インストールしたいライブラリを記述
 brew "argocd"
 brew "coreutils"
 brew "asdf"
@@ -28,13 +32,19 @@ brew "aquasecurity/trivy/trivy"
 brew "aws/tap/copilot-cli"
 brew "mas-cli/tap/mas"
 brew "weaveworks/tap/eksctl"
+###############################################
+# cake: インストールしたいGUIアプリケーションを記述
 cask "google-cloud-sdk"
 cask "sequel-ace"
+################################################
+# mas: App Store から Mac アプリをインストールできる
 mas "GarageBand", id: 682658836
 mas "iMovie", id: 408981434
 mas "Keynote", id: 409183694
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
+################################################
+# 'vscode --install-extension'
 vscode "4ops.terraform"
 vscode "akamud.vscode-theme-onedark"
 vscode "aliariff.slim-lint"
