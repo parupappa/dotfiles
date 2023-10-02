@@ -51,6 +51,8 @@ source <(helm completion zsh)
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 # homebrewのパスを設定
 export PATH="/opt/homebrew/bin:$PATH"
+# gke-gcloud-auth-pluginの使用を設定
+export USE_GKE_GCLOUD_AUTH_PLUGIN=True
 
 # ------------------------------
 # Alias setting
@@ -144,4 +146,3 @@ local p_k8s="k8s:%3v"
 # プロンプトカスタマイズ
 PROMPT='[%F{cyan}@%n%f%F{green}%~%f]'${GIT_PROMPT_COLOR}$p_git'%f$p_gcp %{$fg[cyan]%}($p_k8s)%{$reset_color%}
 $ '
-export USE_GKE_GCLOUD_AUTH_PLUGIN=True
