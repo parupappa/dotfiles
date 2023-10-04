@@ -38,13 +38,6 @@ brew "weaveworks/tap/eksctl"
 cask "google-cloud-sdk"
 cask "sequel-ace"
 ################################################
-# mas: App Store から Mac アプリをインストールできる
-mas "GarageBand", id: 682658836
-mas "iMovie", id: 408981434
-mas "Keynote", id: 409183694
-mas "Numbers", id: 409203825
-mas "Pages", id: 409201541
-################################################
 # 'vscode --install-extension'
 vscode "4ops.terraform"
 vscode "akamud.vscode-theme-onedark"
