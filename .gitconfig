@@ -19,6 +19,6 @@
 	ff = only
 	rebase = true
 [http]
-	postBuffer = 500M
+	postBuffer = 157286400
 [init]
 	templateDir = /Users/annosukeyokoo/.git-template
