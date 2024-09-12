@@ -42,7 +42,16 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 [[ /usr/local/bin/kubectl ]] && source <(kubectl completion zsh)
 # helmの補完機能を有効にする
 source <(helm completion zsh)
+# -----------------------------
+# software setting
+# -----------------------------
+eval "$(rbenv init - zsh)"
 
+# GOのPATHを設定
+# export GOPATH=$(go env GOPATH)
+# export PATH=$PATH:$(go env GOPATH)/bin
+export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin
+export GOPATH=$HOME/go
 # ------------------------------
 # Path setting
 # ------------------------------
@@ -63,6 +72,10 @@ export USE_GKE_GCLOUD_AUTH_PLUGIN=True
 alias tf='terraform'
 alias k='kubectl'
 
+# colordiff
+if [[ -x `which colordiff` ]]; then
+    alias diff='colordiff'
+fi
 # ------------------------------
 # Cloud setting（AWS, GCP）
 # ------------------------------
