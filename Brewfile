@@ -59,10 +59,12 @@ cask "google-cloud-sdk"
 cask "hammerspoon"
 cask "iterm2"
 cask "sequel-ace"
+mas "Focus To-Do", id: 1258530160
 mas "GarageBand", id: 682658836
 mas "iMovie", id: 408981434
 mas "Keynote", id: 409183694
 mas "Kindle", id: 302584613
+mas "Microsoft Word", id: 462054704
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 vscode "akamud.vscode-theme-onedark"
