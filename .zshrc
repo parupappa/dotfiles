@@ -161,3 +161,17 @@ local p_k8s="k8s:%3v"
 # プロンプトカスタマイズ
 PROMPT='[%F{cyan}@%n%f%F{green}%~%f]'${GIT_PROMPT_COLOR}$p_git'%f$p_gcp %{$fg[cyan]%}($p_k8s)%{$reset_color%}
 $ '
+
+
+#########################
+# Argo Rollout
+########################
+cat <<EOF >kubectl_complete-argo-rollouts
+#!/usr/bin/env sh
+
+# Call the __complete command passing it all arguments
+kubectl argo rollouts __complete "\$@"
+EOF
+
+chmod +x kubectl_complete-argo-rollouts
+sudo mv ./kubectl_complete-argo-rollouts /usr/local/bin/
