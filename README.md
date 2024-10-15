@@ -21,8 +21,9 @@ When adding a new file for management:
       # /dotfiles
       git ls-files
     ```
-# Reference
 
+# Reference
 - [shirakiya/dotfiles/zshrc](https://github.com/shirakiya/dotfiles/blob/main/zshrc)
 - [zsh-kubectl-prompt](https://github.com/superbrothers/zsh-kubectl-prompt)
 - [Brewfile で Homebrew のライブラリを管理しよう！](https://kakakakakku.hatenablog.com/entry/2020/09/17/124653)
+- [2024年度 わたしのdotfilesを紹介します](https://zenn.dev/smartcamp/articles/f20a72910bde40#%E3%81%93%E3%82%8C%E3%81%AA%E3%81%AB%EF%BC%9F)

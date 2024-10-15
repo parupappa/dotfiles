@@ -42,16 +42,12 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 [[ /usr/local/bin/kubectl ]] && source <(kubectl completion zsh)
 # helmの補完機能を有効にする
 source <(helm completion zsh)
+
 # -----------------------------
-# software setting
+# Software setting
 # -----------------------------
 eval "$(rbenv init - zsh)"
 
-# GOのPATHを設定
-# export GOPATH=$(go env GOPATH)
-# export PATH=$PATH:$(go env GOPATH)/bin
-export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin
-export GOPATH=$HOME/go
 # ------------------------------
 # Path setting
 # ------------------------------
@@ -64,6 +60,9 @@ export PATH="/opt/homebrew/bin:$PATH"
 export PATH=$PATH:/opt/homebrew/share/google-cloud-sdk/bin
 # gke-gcloud-auth-pluginの使用を設定
 export USE_GKE_GCLOUD_AUTH_PLUGIN=True
+# GOのPATHを設定
+export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin
+export GOPATH=$HOME/go
 
 # ------------------------------
 # Alias setting
@@ -71,11 +70,13 @@ export USE_GKE_GCLOUD_AUTH_PLUGIN=True
 
 alias tf='terraform'
 alias k='kubectl'
+alias ll='ls -laG'
 
 # colordiff
-if [[ -x `which colordiff` ]]; then
-    alias diff='colordiff'
+if [[ -x $(which colordiff) ]]; then
+  alias diff='colordiff'
 fi
+
 # ------------------------------
 # Cloud setting（AWS, GCP）
 # ------------------------------
@@ -100,6 +101,20 @@ function switch_gcloud() {
     gcloud config configurations activate $selected
   fi
 }
+
+# ------------------------------
+# Cloud Native Eco System setting
+# ------------------------------
+# Argo Rollouts
+cat <<EOF >kubectl_complete-argo-rollouts
+#!/usr/bin/env sh
+
+# Call the __complete command passing it all arguments
+kubectl argo rollouts __complete "\$@"
+EOF
+
+chmod +x kubectl_complete-argo-rollouts
+sudo mv ./kubectl_complete-argo-rollouts /usr/local/bin/
 
 # ------------------------------
 # Prompt setting
@@ -161,17 +176,3 @@ local p_k8s="k8s:%3v"
 # プロンプトカスタマイズ
 PROMPT='[%F{cyan}@%n%f%F{green}%~%f]'${GIT_PROMPT_COLOR}$p_git'%f$p_gcp %{$fg[cyan]%}($p_k8s)%{$reset_color%}
 $ '
-
-
-#########################
-# Argo Rollout
-########################
-cat <<EOF >kubectl_complete-argo-rollouts
-#!/usr/bin/env sh
-
-# Call the __complete command passing it all arguments
-kubectl argo rollouts __complete "\$@"
-EOF
-
-chmod +x kubectl_complete-argo-rollouts
-sudo mv ./kubectl_complete-argo-rollouts /usr/local/bin/
