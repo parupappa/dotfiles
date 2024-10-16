@@ -47,6 +47,8 @@ source <(helm completion zsh)
 # Software setting
 # -----------------------------
 eval "$(rbenv init - zsh)"
+# mise
+eval "$(/opt/homebrew/bin/mise activate zsh)"
 
 # ------------------------------
 # Path setting
@@ -71,6 +73,7 @@ export GOPATH=$HOME/go
 alias tf='terraform'
 alias k='kubectl'
 alias ll='ls -laG'
+alias c='clear'
 
 # colordiff
 if [[ -x $(which colordiff) ]]; then

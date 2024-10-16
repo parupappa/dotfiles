@@ -1,24 +1,31 @@
+[include]
+path = ~/dotfiles/git/user.conf
+
 [core]
-	excludesfile = /Users/annosuke.yokoo/.gitignore_global
-	editor = code --wait
+excludesfile = /Users/annosuke.yokoo/.gitignore_global
+editor = code --wait
+
 [difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path =
+cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+path =
+
 [mergetool "sourcetree"]
-	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
-[user]
-	name = annosuke.yokoo
-	email = yokoo.an209@gmail.com
+cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+trustExitCode = true
+
 [alias]
-	ci = commit
-	br = branch
-	co = checkout
-	st = status
-[pull]
-	ff = only
-	rebase = true
-[http]
-	postBuffer = 157286400
+ci = commit
+br = branch
+co = checkout
+st = status
+
 [init]
-	templateDir = /Users/annosukeyokoo/.git-template
+templateDir = /Users/annosukeyokoo/.git-template
+defaultBranch = main
+
+[pull]
+ff = only
+rebase = true
+
+[http]
+postBuffer = 157286400
