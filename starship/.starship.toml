@@ -1,5 +1,9 @@
 [aws]
-symbol = "  "
+format = 'on [$symbol$profile]($style) '
+style = 'bold blue'
+symbol = '🅰 '
+[aws.profile_aliases]
+Enterprise_Naming_Scheme-voidstars = 'void**'
 
 [buf]
 symbol = " "
@@ -33,6 +37,10 @@ symbol = " "
 
 [fossil_branch]
 symbol = " "
+
+[gcloud]
+format = '[$symbol$active]($style) '
+style = 'bold yellow'
 
 [git_branch]
 symbol = " "

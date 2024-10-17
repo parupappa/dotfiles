@@ -4,10 +4,9 @@ Clone the repository:
 git clone https://github.com/parupappa/dotfiles.git
 ```
 
-Create symbolic links:
+Run the setup script:
 ```sh
-cd dotfiles
-sh dotfilesLink.sh
+sh setup.sh
 ```
 
 # Usage
@@ -21,6 +20,18 @@ When adding a new file for management:
       # /dotfiles
       git ls-files
     ```
+
+
+# Brewfile
+```bash
+# Execute 'dotfiles/homebrew'
+
+# Generate Brewfile
+$ brew bundle dump
+
+# brew uninstallを実行しなくても、Brewfileのエントリーを削除して、以下を実行する
+$ brew bundle cleanup
+```
 
 # Reference
 - [shirakiya/dotfiles/zshrc](https://github.com/shirakiya/dotfiles/blob/main/zshrc)
