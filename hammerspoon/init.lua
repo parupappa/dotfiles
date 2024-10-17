@@ -12,3 +12,11 @@ hs.hotkey.bind(mash, 'right', function() hs.window.focusedWindow():move(units.ri
 hs.hotkey.bind(mash, 'left', function() hs.window.focusedWindow():move(units.left50, nil, true) end)
 hs.hotkey.bind(mash, 'up', function() hs.window.focusedWindow():move(units.top50, nil, true) end)
 hs.hotkey.bind(mash, 'down', function() hs.window.focusedWindow():move(units.bot50, nil, true) end)
+
+-- Reload Confingの設定（これをしないと設定が反映されない）
+-- アプリからReload Confingを押しても良い
+
+hs.hotkey.bind({"cmd", "alt"}, "R", function()
+  hs.reload()
+end)
+hs.alert.show("Config loaded")
