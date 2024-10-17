@@ -1,0 +1,103 @@
+format = """
+$directory\
+[ ](fg:#88C0D0 bg:#1d2230)\
+$git_branch\
+$git_status\
+[ ](fg:#1d2230)\
+\n$character
+"""
+
+right_format = """
+$cmd_duration\
+$username\
+✨
+$time
+"""
+
+# ------------------------------
+# General Settings
+# ------------------------------
+
+# コマンドラインに1行分のスペースを入れる
+add_newline = true
+
+[username]
+style_user = "white bold"
+style_root = "black bold"
+format = "user: [$user]($style) "
+disabled = false
+
+# left_promptとright_promptの間を何で埋めるか設定
+[fill]
+symbol = ' '
+
+[directory]
+style = "fg:#2E3440 bg:#88C0D0 bold"
+# format = "[ $path ]($style)"
+truncation_length = 10
+truncate_to_repo = false
+truncation_symbol = "…/"
+# truncation_symbol = ' ' # nf-fa-folder_open
+# truncate_to_repo = false
+# style = 'fg:#7aa2f7 bg:#1a1b26'
+read_only = ' 󰌾 '                                          # nf-md-lock
+read_only_style = 'fg:#f7768e bg:#1a1b26'
+format = '[ $path ]($style)[$read_only]($read_only_style)'
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
+
+[cmd_duration]
+min_time = 1
+style = 'fg:#e0af68'
+format = "[$duration]($style)" # nf-pl-right_soft_divider, nf-mdi-clock
+
+[time]
+disabled = false
+time_format = "%R" # Hour:Minute Format
+# style = "bg:#1d2230"
+format = '[[   $time ](fg:#a0a9cb)]($style)'
+
+[character]
+vimcmd_symbol = '[V](bold green) '
+
+# ------------------------------
+# Git Settings
+# ------------------------------
+
+[git_branch]
+symbol = ""
+style = "bg:#1d2230"
+format = '[[ $symbol $branch ](fg:#769ff0 bg:#1d2230)]($style)'
+
+[git_status]
+style = "bg:#1d2230"
+format = '[[($all_status$ahead_behind )](fg:#769ff0 bg:#1d2230)]($style)'
+
+# ------------------------------
+# Cloud Settings
+# ------------------------------
+
+[aws]
+format = 'on [$symbol$profile]($style) '
+style = 'bold orange'
+symbol = '🅰 '
+disabled = true
+[aws.profile_aliases]
+Enterprise_Naming_Scheme-voidstars = 'void**'
+
+[gcloud]
+format = '[$symbol$active]($style) '
+style = 'bold green'
+disabled = true
+
+[kubernetes]
+format = 'on [⛵ ($user on )($cluster in )$context \($namespace\)](dimmed green) '
+style = 'bold blue'
+disabled = false
+contexts = [
+  { context_pattern = "dev.local.cluster.k8s", style = "green", symbol = "💔 " },
+]

@@ -11,6 +11,8 @@ if wezterm.config_builder then
 end
 
 -- This is where you actually apply your config choices
+config.use_ime = true
+config.automatically_reload_config = true
 
 -- For example, changing the color scheme:
 config.color_scheme = 'AdventureTime'
@@ -20,7 +22,7 @@ config.color_scheme = 'AdventureTime'
 -- colors
 config.color_scheme = "nord"
 config.window_background_opacity = 0.85
-config.macos_window_background_blur = 20
+config.macos_window_background_blur = 10
 
 -- 現在有効なtabに色をつける
 wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
@@ -68,6 +70,33 @@ config.keys = {
     mods = "CMD|SHIFT",
     action = wezterm.action { SplitVertical = { domain = "CurrentPaneDomain" } },
   },
+  -- ⌘  { }でタブの移動
+  { key = 'LeftArrow', mods = 'CMD|SHIFT', action = act.MoveTabRelative(-1) },
+  { key = 'RightArrow', mods = 'CMD|SHIFT', action = act.MoveTabRelative(1) },
+
+
+  -- ⌘ 矢印でペインの移動
+  {
+    key = 'LeftArrow',
+    mods = 'CMD',
+    action = wezterm.action.ActivatePaneDirection 'Left',
+  },
+  {
+      key = 'DownArrow',
+      mods = 'CMD',
+      action = wezterm.action.ActivatePaneDirection 'Down',
+  },
+  {
+      key = 'UpArrow',
+      mods = 'CMD',
+      action = wezterm.action.ActivatePaneDirection 'Up',
+  },
+  {
+      key = 'RightArrow',
+      mods = 'CMD',
+      action = wezterm.action.ActivatePaneDirection 'Right',
+  },
+
 }
 
 return config

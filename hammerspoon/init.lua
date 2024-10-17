@@ -7,7 +7,7 @@ units = {
   bot50         = { x = 0.00, y = 0.50, w = 1.00, h = 0.50 }
 }
 
-mash = { 'option', 'command' }
+mash = { 'option', 'ctrl' }
 hs.hotkey.bind(mash, 'right', function() hs.window.focusedWindow():move(units.right50, nil, true) end)
 hs.hotkey.bind(mash, 'left', function() hs.window.focusedWindow():move(units.left50, nil, true) end)
 hs.hotkey.bind(mash, 'up', function() hs.window.focusedWindow():move(units.top50, nil, true) end)

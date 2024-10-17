@@ -21,28 +21,26 @@ for file in "$DOTFILES_DIR"/*/.[^.]*; do
     echo "リンクを作成: $file -> $link_name"
 done
 
-# Brewfileのシンボリックリンクを作成
-# 上記スクリプトでは、'.'から始まるファイルを対象にしているため、Brewfileは対象外. brew bundle --cleanupを実行するには、'Brefile'でないとけないため
-brewfile_target="$DOTFILES_DIR/homebrew/Brewfile"
-brewfile_link="$HOME/Brewfile"
+# シンボリックリンクを作成する関数
+create_symlink() {
+    local target=$1
+    local link_name=$2
 
-if [ -e "$brewfile_link" ]; then
-    echo "シンボリックリンク $brewfile_link は既に存在します。"
-else
-    ln -s "$brewfile_target" "$brewfile_link"
-    echo "シンボリックリンク $brewfile_link を作成しました。"
-fi
+    if [ -e "$link_name" ]; then
+        echo "シンボリックリンク $link_name は既に存在します。"
+    else
+        ln -s "$target" "$link_name"
+        echo "シンボリックリンク $link_name を作成しました。"
+    fi
+}
+
+# Brewfileのシンボリックリンクを作成
+create_symlink "$DOTFILES_DIR/homebrew/Brewfile" "$HOME/Brewfile"
 
 # .hammerspoon/init.luaのシンボリックリンクを作成
-hammerspoon_target="$DOTFILES_DIR/hammerspoon/init.lua"
-hammerspoon_link="$HOME/.hammerspoon/init.lua"
+create_symlink "$DOTFILES_DIR/hammerspoon/init.lua" "$HOME/.hammerspoon/init.lua"
 
-if [ -e "$hammerspoon_link" ]; then
-    echo "シンボリックリンク $hammerspoon_link は既に存在します。"
-else
-    ln -s "$hammerspoon_target" "$hammerspoon_link"
-    echo "シンボリックリンク $hammerspoon_link を作成しました。"
-fi
-
+# starship/starship.tomlのシンボリックリンクを作成
+create_symlink "$DOTFILES_DIR/starship/starship.toml" "$HOME/.config/starship.toml"
 
 echo "シンボリックリンクがホームディレクトリ直下に作成されました"
