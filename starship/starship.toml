@@ -4,6 +4,10 @@ $directory\
 $git_branch\
 $git_status\
 [ ](fg:#1d2230)\
+$kubernetes\
+$aws\
+$gcloud\
+[ ](fg:#1d2230)\
 \n$character
 """
 
@@ -92,12 +96,11 @@ Enterprise_Naming_Scheme-voidstars = 'void**'
 [gcloud]
 format = '[$symbol$active]($style) '
 style = 'bold green'
-disabled = true
+disabled = false
 
 [kubernetes]
-format = 'on [⛵ ($user on )($cluster in )$context \($namespace\)](dimmed green) '
-style = 'bold blue'
+format = 'on [⛵ ($cluster in )$context \($namespace\)](bold blue) '
 disabled = false
 contexts = [
-  { context_pattern = "dev.local.cluster.k8s", style = "green", symbol = "💔 " },
+  { context_pattern = "dev.local.cluster.k8s", style = "bold blue", symbol = "💔 " },
 ]

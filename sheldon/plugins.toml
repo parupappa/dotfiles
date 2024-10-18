@@ -15,6 +15,10 @@ defer = "{% for file in files %}zsh-defer source \"{{ file }}\"\n{% endfor %}"
 [plugins.syntax-highlighting]
 github = "zdharma/fast-syntax-highlighting"
 
+# history をベースに入力コマンドのサジェスト
+[plugins.zsh-autosuggestions]
+github = "zsh-users/zsh-autosuggestions"
+
 # zsh配下のファイルは遅延読み込みする
 [plugins.local-defers]
 local = "~/dotfiles/zsh"

@@ -23,6 +23,12 @@ $ brew bundle cleanup
 $ brewsync
 ```
 
+# Sheldon
+```bash
+# plugins update
+$ sheldon lock --update
+```
+
 # Reference
 - [shirakiya/dotfiles/zshrc](https://github.com/shirakiya/dotfiles/blob/main/zshrc)
 - [zsh-kubectl-prompt](https://github.com/superbrothers/zsh-kubectl-prompt)

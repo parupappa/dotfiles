@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 # ------------------------------
 # General settings
@@ -40,17 +40,26 @@ setopt hist_ignore_dups
 # 同じコマンドをヒストリに残さない
 setopt hist_ignore_all_dups
 
-# cd-<tab>で以前移動したディレクトリを表示
-setopt auto_pushd
-
 # historyに保存するときに余分なスペースを削除する
 setopt hist_reduce_blanks
 
 # ------------------------------
 # Complement settings
 # ------------------------------
+# cd-<tab>で以前移動したディレクトリを表示
+setopt auto_pushd
+
 # 環境変数を補完
 setopt auto_param_keys
+
+# 補完候補がディレクトリの場合, 末尾に/を追加
+setopt auto_param_slash
+
+# 補完候補一覧でファイルの種別を識別マーク表示
+setopt list_types
+
+# 補完で小文字でも大文字にマッチさせる
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
 # zsh-completions の設定。コマンド補完機能
 autoload -U compinit && compinit -u
@@ -65,12 +74,6 @@ fi
 # 補完機能を有効にする
 autoload -Uz compinit
 compinit -C
-
-# 補完候補がディレクトリの場合, 末尾に/を追加
-setopt auto_param_slash
-
-# 補完で小文字でも大文字にマッチさせる
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
 # kubectlの補完機能を有効にする
 [[ /usr/local/bin/kubectl ]] && source <(kubectl completion zsh)
