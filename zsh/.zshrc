@@ -7,12 +7,10 @@
 eval "$(rbenv init - zsh)"
 # mise
 eval "$(/opt/homebrew/bin/mise activate zsh)"
-# starship
-eval "$(starship init zsh)"
 # sheldon
 eval "$(sheldon source)"
-# zshの読み込み時間を表示するときはコメントアウトを外す
-zmodload zsh/zprof
+# starship
+eval "$(starship init zsh)"
 
 # ------------------------------
 # Cloud setting（AWS, GCP）
