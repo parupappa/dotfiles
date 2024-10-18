@@ -1,86 +1,18 @@
-# ------------------------------
-# General Settings
-# ------------------------------
-
-# コマンドのスペルを訂正する
-setopt correct
-
-# zsh-completions の設定。コマンド補完機能
-autoload -U compinit && compinit -u
-autoload -U +X bashcompinit && bashcompinit
-
-# もしかして機能
-setopt correct
-
-# 文字の一部と認識する記号
-export WORDCHARS='*?_-[]~=&;!#$%^(){}<>'
-
-# カラーの有効化
-autoload -U colors && colors
-
-# ------------------------------
-# complement settings
-# ------------------------------
-
-# zsh-completions
-# compinit の実行よりも前に記述する
-if [ -e ${HOMEBREW_DIR}/share/zsh-completions ]; then
-  fpath=(${HOMEBREW_DIR}/share/zsh-completions $fpath)
-fi
-
-# 補完機能を有効にする
-autoload -Uz compinit
-compinit -C
-
-# 補完候補がディレクトリの場合, 末尾に/を追加
-setopt auto_param_slash
-
-# 補完で小文字でも大文字にマッチさせる
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
-
-# kubectlの補完機能を有効にする
-[[ /usr/local/bin/kubectl ]] && source <(kubectl completion zsh)
-# helmの補完機能を有効にする
-source <(helm completion zsh)
+#!/bin/bash
 
 # -----------------------------
 # Software setting
 # -----------------------------
+# rbenv
 eval "$(rbenv init - zsh)"
 # mise
 eval "$(/opt/homebrew/bin/mise activate zsh)"
 # starship
 eval "$(starship init zsh)"
-
-# ------------------------------
-# Path setting
-# ------------------------------
-
-# krewのパスを設定
-export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
-# homebrewのパスを設定
-export PATH="/opt/homebrew/bin:$PATH"
-# gcloudのパスを設定
-export PATH=$PATH:/opt/homebrew/share/google-cloud-sdk/bin
-# gke-gcloud-auth-pluginの使用を設定
-export USE_GKE_GCLOUD_AUTH_PLUGIN=True
-# GOのPATHを設定
-export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin
-export GOPATH=$HOME/go
-
-# ------------------------------
-# Alias setting
-# ------------------------------
-
-alias tf='terraform'
-alias k='kubectl'
-alias ll='ls -laG'
-alias c='clear'
-
-# colordiff
-if [[ -x $(which colordiff) ]]; then
-  alias diff='colordiff'
-fi
+# sheldon
+eval "$(sheldon source)"
+# zshの読み込み時間を表示するときはコメントアウトを外す
+zmodload zsh/zprof
 
 # ------------------------------
 # Cloud setting（AWS, GCP）

@@ -18,6 +18,9 @@ $ brew bundle dump
 
 # brew uninstallを実行しなくても、Brewfileのエントリーを削除して、以下を実行する
 $ brew bundle cleanup
+
+# brewsyncでcheck-and-sync-brewfile.zsh を実行する
+$ brewsync
 ```
 
 # Reference

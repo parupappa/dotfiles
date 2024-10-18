@@ -2,19 +2,12 @@
 path = ~/dotfiles/git/user.conf
 
 [core]
-excludesfile = /Users/annosuke.yokoo/.gitignore_global
+# エディタをvscodeに設定
 editor = code --wait
 
-[difftool "sourcetree"]
-cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-path =
-
-[mergetool "sourcetree"]
-cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-trustExitCode = true
-
 [alias]
-ci = commit
+a = add
+c = commit
 br = branch
 co = checkout
 st = status
@@ -22,6 +15,9 @@ st = status
 [init]
 templateDir = /Users/annosukeyokoo/.git-template
 defaultBranch = main
+
+[fetch]
+prune = true
 
 [pull]
 ff = only
