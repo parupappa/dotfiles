@@ -1,4 +1,4 @@
 #!/bin/bash
 
 echo "Brewfileに記載されているパッケージをインストールします"
-brew bundle
+brew bundle --file $HOME/Brewfile

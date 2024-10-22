@@ -29,6 +29,15 @@ $ brewsync
 $ sheldon lock --update
 ```
 
+# mise
+```bash
+# mise update
+$ mise install terraform
+
+```
+[言語・ツール・環境変数・タスクランナーの全てを集約する開発環境ツール mise のご紹介](https://zenn.dev/akineko/articles/8fe959a02cb94b)
+[mise ではじめる開発環境構築](https://zenn.dev/takamura/articles/dev-started-with-mise)
+
 # Reference
 - [shirakiya/dotfiles/zshrc](https://github.com/shirakiya/dotfiles/blob/main/zshrc)
 - [zsh-kubectl-prompt](https://github.com/superbrothers/zsh-kubectl-prompt)

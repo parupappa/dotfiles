@@ -51,6 +51,7 @@ brew "weaveworks/tap/eksctl"
 cask "arc"
 # cask "anki"
 cask "clipy"
+cask "discord"
 # cask "docker"
 cask "google-cloud-sdk"
 cask "hammerspoon"
@@ -59,7 +60,7 @@ cask "logi-options+"
 # cask "spotify"
 cask "visual-studio-code"
 cask "wezterm"
-# cask "zoom"
+# cask "zoom"   
 # mas "Focus To-Do", id: 1258530160
 # mas "GarageBand", id: 682658836
 # mas "iMovie", id: 408981434
