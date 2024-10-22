@@ -52,6 +52,7 @@ create_symlink "$DOTFILES_DIR/hammerspoon/init.lua" "$HOME/.hammerspoon/init.lua
 create_symlink "$DOTFILES_DIR/starship/starship.toml" "$HOME/.config/starship.toml"
 
 # sheldon
+mkdir $HOME/.config/sheldon
 create_symlink "$DOTFILES_DIR/sheldon/plugins.toml" "$HOME/.config/sheldon/plugins.toml"
 
 echo "シンボリックリンクがホームディレクトリ直下に作成されました"
