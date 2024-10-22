@@ -3,8 +3,6 @@
 # -----------------------------
 # Software setting
 # -----------------------------
-# rbenv
-eval "$(rbenv init - zsh)"
 # mise
 eval "$(/opt/homebrew/bin/mise activate zsh)"
 # sheldon
