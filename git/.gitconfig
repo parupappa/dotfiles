@@ -13,7 +13,6 @@ co = checkout
 st = status
 
 [init]
-templateDir = /Users/annosukeyokoo/.git-template
 defaultBranch = main
 
 [fetch]
