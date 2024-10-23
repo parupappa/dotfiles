@@ -9,10 +9,9 @@ Run the setup script:
 sh setup.sh
 ```
 
-# Brewfile
+# Other setup
+## Brewfile
 ```bash
-# Execute 'dotfiles/homebrew'
-
 # Generate Brewfile
 $ brew bundle dump
 
@@ -23,20 +22,35 @@ $ brew bundle cleanup
 $ brewsync
 ```
 
-# Sheldon
+## Sheldon
 ```bash
 # plugins update
 $ sheldon lock --update
 ```
 
-# mise
+## mise
 ```bash
-# mise update
-$ mise install terraform
+# config.tomlに記載されているツールをインストール
+mise i
+
+# upとupgradeは同じ(alias)
+# mise outdatedで出力されたツールすべてをアップデート
+mise up
+mise upgrade
+
+# 個々のツールを指定したり、バージョン指定でアップデートすることも可能
+mise up node
+mise up node@18
 
 ```
 [言語・ツール・環境変数・タスクランナーの全てを集約する開発環境ツール mise のご紹介](https://zenn.dev/akineko/articles/8fe959a02cb94b)
 [mise ではじめる開発環境構築](https://zenn.dev/takamura/articles/dev-started-with-mise)
+
+## Go
+```bash
+# mise でgoを入れた後に、linterをgo経由で入れる
+$ go install honnef.co/go/tools/cmd/staticcheck@latest
+```
 
 # Reference
 - [shirakiya/dotfiles/zshrc](https://github.com/shirakiya/dotfiles/blob/main/zshrc)

@@ -55,4 +55,8 @@ create_symlink "$DOTFILES_DIR/starship/starship.toml" "$HOME/.config/starship.to
 mkdir $HOME/.config/sheldon
 create_symlink "$DOTFILES_DIR/sheldon/plugins.toml" "$HOME/.config/sheldon/plugins.toml"
 
+# mise
+mkdir $HOME/.config/mise
+create_symlink "$DOTFILES_DIR/mise/config.toml" "$HOME/.config/mise/config.toml"
+
 echo "シンボリックリンクがホームディレクトリ直下に作成されました"

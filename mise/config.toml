@@ -1,0 +1,5 @@
+[tools]
+terraform = "1.9.8"
+go = "1.23.2"
+python = "3.13.0"
+ruby = "3.3.5"
