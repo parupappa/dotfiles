@@ -17,7 +17,7 @@ The latest available version is: 498.0.0
 │ Not Installed    │ App Engine Go Extensions                             │ app-engine-go                │   4.5 MiB │
 │ Not Installed    │ Appctl                                               │ appctl                       │  18.5 MiB │
 │ Not Installed    │ Artifact Registry Go Module Package Helper           │ package-go-module            │   < 1 MiB │
-│ Not Installed    │ Cloud Bigtable Command Line Tool                     │ cbt                          │  17.9 MiB │
+│ Not Installed    │ Cloud Bigtable Co∑mmand Line Tool                     │ cbt                          │  17.9 MiB │
 │ Not Installed    │ Cloud Bigtable Emulator                              │ bigtable                     │   7.3 MiB │
 │ Not Installed    │ Cloud Datastore Emulator                             │ cloud-datastore-emulator     │  36.2 MiB │
 │ Not Installed    │ Cloud Firestore Emulator                             │ cloud-firestore-emulator     │  46.9 MiB │
