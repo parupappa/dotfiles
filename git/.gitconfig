@@ -24,3 +24,6 @@ rebase = true
 
 [http]
 postBuffer = 157286400
+[user]
+	name = annosuke.yokoo
+	email = annosuke.yokoo@datadoghq.com
