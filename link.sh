@@ -56,7 +56,7 @@ mkdir $HOME/.config/sheldon
 create_symlink "$DOTFILES_DIR/sheldon/plugins.toml" "$HOME/.config/sheldon/plugins.toml"
 
 # mise
-mkdir $HOME/.config/mise
-create_symlink "$DOTFILES_DIR/mise/config.toml" "$HOME/.config/mise/config.toml"
+# mkdir $HOME/.config/mise
+# create_symlink "$DOTFILES_DIR/mise/config.toml" "$HOME/.config/mise/config.toml"
 
 echo "シンボリックリンクがホームディレクトリ直下に作成されました"
