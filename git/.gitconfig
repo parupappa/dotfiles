@@ -4,6 +4,7 @@ path = ~/dotfiles/git/user.conf
 [core]
 # エディタをvscodeに設定
 editor = code --wait
+	hooksPath = /usr/local/dd/global_hooks
 
 [alias]
 a = add
