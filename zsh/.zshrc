@@ -4,7 +4,7 @@
 # Software setting
 # -----------------------------
 # mise
-eval "$(/opt/homebrew/bin/mise activate zsh)"
+# eval "$(/opt/homebrew/bin/mise activate zsh)"
 # sheldon
 eval "$(sheldon source)"
 # starship
