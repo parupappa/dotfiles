@@ -79,3 +79,5 @@ compinit -C
 [[ /usr/local/bin/kubectl ]] && source <(kubectl completion zsh)
 # helmの補完機能を有効にする
 source <(helm completion zsh)
+# glasskube の補完機能を有効にする
+source <(glasskube completion zsh)
