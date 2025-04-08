@@ -52,15 +52,15 @@ cask "arc"
 # cask "anki"
 cask "clipy"
 # cask "discord"
-# cask "docker"
+cask "docker"
 cask "google-cloud-sdk"
 cask "hammerspoon"
-# cask "logi-options+"
+cask "logi-options+"
 # cask "sequel-ace"
-# cask "spotify"
-# cask "visual-studio-code"
+cask "spotify"
+cask "visual-studio-code"
 cask "wezterm"
-# cask "zoom"   
+cask "zoom"   
 # mas "Focus To-Do", id: 1258530160
 # mas "GarageBand", id: 682658836
 # mas "iMovie", id: 408981434
@@ -69,9 +69,7 @@ cask "wezterm"
 # mas "Microsoft Word", id: 462054704
 # mas "Numbers", id: 409203825
 # mas "Pages", id: 409201541
-vscode "akamud.vscode-theme-onedark"
 vscode "amazonwebservices.aws-toolkit-vscode"
-vscode "benjaminbenais.copilot-theme"
 vscode "castwide.solargraph"
 vscode "christian-kohler.npm-intellisense"
 vscode "christian-kohler.path-intellisense"
