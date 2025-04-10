@@ -1,4 +1,4 @@
 [tools]
-terraform = "1.10.4"
+terraform = "1.11.3"
 go = "1.23.4"
 python = "3.13.1"
