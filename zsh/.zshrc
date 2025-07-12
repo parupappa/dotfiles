@@ -23,3 +23,8 @@ EOF
 
 chmod +x kubectl_complete-argo-rollouts
 sudo mv ./kubectl_complete-argo-rollouts /usr/local/bin/
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(/Users/annosuke.yokoo/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+# End of Docker CLI completions
