@@ -4,3 +4,6 @@ go = "1.23.4"
 python = "3.13.1"
 node = "24.1.0"
 gh = "latest"
+
+[settings]
+idiomatic_version_file_enable_tools = ["node"]
