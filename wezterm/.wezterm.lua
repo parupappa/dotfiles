@@ -50,17 +50,23 @@ end)
 -- キーバインド
 local act = wezterm.action
 config.keys = {
-    -- ⌘ + でフォントサイズを大きくする
-    {
-      key = "+",
-      mods = "CMD|SHIFT",
-      action = wezterm.action.IncreaseFontSize,
+  -- ⌘ + でフォントサイズを大きくする
+  {
+    key = "+",
+    mods = "CMD|SHIFT",
+    action = wezterm.action.IncreaseFontSize,
+  },
+  -- Shift+Enterで改行を送信
+  {
+    key = "Enter",
+    mods = "SHIFT",
+    action = wezterm.action.SendString('\n'),
   },
   -- ⌘ w でペインを閉じる（デフォルトではタブが閉じる）
   {
-      key = "w",
-      mods = "CMD",
-      action = wezterm.action.CloseCurrentPane { confirm = true },
+    key = "w",
+    mods = "CMD",
+    action = wezterm.action.CloseCurrentPane { confirm = true },
   },
   -- ⌘ dで新しいペインを作成(画面を分割)
   {
@@ -78,7 +84,6 @@ config.keys = {
   { key = 'LeftArrow', mods = 'CMD|SHIFT', action = act.MoveTabRelative(-1) },
   { key = 'RightArrow', mods = 'CMD|SHIFT', action = act.MoveTabRelative(1) },
 
-
   -- ⌘ 矢印でペインの移動
   {
     key = 'LeftArrow',
@@ -86,33 +91,23 @@ config.keys = {
     action = wezterm.action.ActivatePaneDirection 'Left',
   },
   {
-      key = 'DownArrow',
-      mods = 'CMD',
-      action = wezterm.action.ActivatePaneDirection 'Down',
+    key = 'DownArrow',
+    mods = 'CMD',
+    action = wezterm.action.ActivatePaneDirection 'Down',
   },
   {
-      key = 'UpArrow',
-      mods = 'CMD',
-      action = wezterm.action.ActivatePaneDirection 'Up',
+    key = 'UpArrow',
+    mods = 'CMD',
+    action = wezterm.action.ActivatePaneDirection 'Up',
   },
   {
-      key = 'RightArrow',
-      mods = 'CMD',
-      action = wezterm.action.ActivatePaneDirection 'Right',
+    key = 'RightArrow',
+    mods = 'CMD',
+    action = wezterm.action.ActivatePaneDirection 'Right',
   },
-
 }
 
 -- システムベル音を有効化（Claude Codeのタスク完了通知用）
 config.audible_bell = "SystemBeep"
-
--- Shift+Enterで改行を送信
-config.keys = {
-  {
-    key = 'Enter',
-    mods = 'SHIFT',
-    action = wezterm.action.SendString('\n')
-  },
-}
 
 return config
