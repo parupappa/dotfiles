@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Obsidian Vault のパス（Obsidian MCP Tools 接続先）
+export OBSIDIAN_VAULT="/Users/annosuke.yokoo/Documents/Obsidian Vault"
+
 alias c='clear'
 alias cl='claude'
 alias cla='claude --permission-mode auto'

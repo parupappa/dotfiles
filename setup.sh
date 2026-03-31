@@ -44,6 +44,7 @@ python3 ~/dotfiles/claude/inject-mcp.py
 echo "セットアップが完了しました"
 echo "Next..."
 echo "1. .envを追加し、環境変数を設定してください。"
-echo "   (OBSIDIAN_API_KEY=<your-key> を記載すると Obsidian MCP が有効になります)"
+echo "   OBSIDIAN_VAULT=<vault-dir>  # Obsidian Vault のディレクトリパス"
+echo "   OBSIDIAN_API_KEY=<your-key>  # ~/.obsidian/plugins/mcp-tools の設定画面で確認"
 echo "2. git/user.confを追加し、ユーザー情報を設定してください。"
 echo "3. ターミナルを再起動してください。"
