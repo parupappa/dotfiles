@@ -59,4 +59,14 @@ create_symlink "$DOTFILES_DIR/sheldon/plugins.toml" "$HOME/.config/sheldon/plugi
 mkdir $HOME/.config/mise
 create_symlink "$DOTFILES_DIR/mise/config.toml" "$HOME/.config/mise/config.toml"
 
+# claude code
+mkdir -p "$HOME/.claude"
+ln -sfn "$DOTFILES_DIR/claude/settings.json" "$HOME/.claude/settings.json"
+echo "リンクを作成: $DOTFILES_DIR/claude/settings.json -> $HOME/.claude/settings.json"
+
+# mcp snowflake config
+mkdir -p "$HOME/.config/mcp"
+ln -sfn "$DOTFILES_DIR/claude/mcp-snowflake-config.yaml" "$HOME/.config/mcp/snowflake-config.yaml"
+echo "リンクを作成: $DOTFILES_DIR/claude/mcp-snowflake-config.yaml -> $HOME/.config/mcp/snowflake-config.yaml"
+
 echo "シンボリックリンクがホームディレクトリ直下に作成されました"

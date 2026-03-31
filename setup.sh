@@ -27,8 +27,23 @@ source ~/dotfiles/replace-zsh.sh
 # gitをbrewのものに置き換え
 source ~/dotfiles/replace-git.sh
 
+# kubectl argo rollouts completion (一度だけ実行)
+if ! [ -f /usr/local/bin/kubectl_complete-argo-rollouts ]; then
+    cat <<'EOF' >/tmp/kubectl_complete-argo-rollouts
+#!/usr/bin/env sh
+kubectl argo rollouts __complete "$@"
+EOF
+    chmod +x /tmp/kubectl_complete-argo-rollouts
+    sudo mv /tmp/kubectl_complete-argo-rollouts /usr/local/bin/
+fi
+
+# Claude Code の MCP サーバー設定を ~/.claude.json に注入
+echo "Claude Code MCP サーバー設定を注入します"
+python3 ~/dotfiles/claude/inject-mcp.py
+
 echo "セットアップが完了しました"
 echo "Next..."
 echo "1. .envを追加し、環境変数を設定してください。"
+echo "   (OBSIDIAN_API_KEY=<your-key> を記載すると Obsidian MCP が有効になります)"
 echo "2. git/user.confを追加し、ユーザー情報を設定してください。"
 echo "3. ターミナルを再起動してください。"
