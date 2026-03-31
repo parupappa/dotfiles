@@ -1,6 +1,44 @@
+# macOS
 .DS_Store
+.AppleDouble
+.LSOverrideDirectory
+._*
+.Spotlight-V100
+.Trashes
+
+# Editors
+.viminfo
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+
+# Sensitive / credentials
 .env
+.env.*
+*.pem
+*.key
+*.p12
+*.p8
+*_rsa
+*_rsa.pub
+*_dsa
+*_dsa.pub
+*_ecdsa
+*_ecdsa.pub
+*_ed25519
+*_ed25519.pub
+.netrc
+.authinfo
+
+# Shell history
+.bash_history
+.zsh_history
+.zsh_sessions/
+
+# Project-specific
 git/*.conf
-clipy
-arc
-gcloud
+clipy/
+arc/
+gcloud/
