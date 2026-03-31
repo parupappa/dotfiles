@@ -2,7 +2,7 @@
 
 alias c='clear'
 alias cl='claude'
-alias cla='claude --allow-dangerously-skip-permissions'
+alias cla='claude —permission-mode auto'
 alias cu='cursor'
 alias re='exec $SHELL -l'
 alias ll='ls -laG'
