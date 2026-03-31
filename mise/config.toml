@@ -1,8 +1,8 @@
 [tools]
-terraform = "1.11.3"
-go = "1.23.4"
-python = "3.13.1"
-node = "24.1.0"
+terraform = "1.14.8"
+go = "1.26.1"
+python = "3.13.12"
+node = "25.8.2"
 gh = "latest"
 
 [settings]

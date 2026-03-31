@@ -29,8 +29,8 @@ postBuffer = 157286400
 	name = annosuke.yokoo
 	email = annosuke.yokoo@datadoghq.com
 [credential "https://github.com"]
-	helper = 
-	helper = !/Users/annosuke.yokoo/.local/share/mise/installs/gh/2.74.2/gh_2.74.2_macOS_arm64/bin/gh auth git-credential
+	helper =
+	helper = !gh auth git-credential
 [credential "https://gist.github.com"]
-	helper = 
-	helper = !/Users/annosuke.yokoo/.local/share/mise/installs/gh/2.74.2/gh_2.74.2_macOS_arm64/bin/gh auth git-credential
+	helper =
+	helper = !gh auth git-credential

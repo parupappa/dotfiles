@@ -3,9 +3,6 @@
 # Add ~/.local/bin to PATH
 export PATH="$HOME/.local/bin:$PATH"
 
-# homebrewのパスを設定
-export PATH="/opt/homebrew/bin:$PATH"
-
 # krewのパスを設定
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 # gcloudのパスを設定

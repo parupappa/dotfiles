@@ -18,11 +18,6 @@ config.font_size = 11.0
 config.use_ime = true
 config.automatically_reload_config = true
 
--- For example, changing the color scheme:
-config.color_scheme = 'AdventureTime'
-
--- and finally, return the configuration to wezterm
-
 -- colors
 config.color_scheme = "nord"
 config.window_background_opacity = 0.85

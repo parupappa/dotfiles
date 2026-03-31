@@ -13,7 +13,7 @@ defer = "{% for file in files %}zsh-defer source \"{{ file }}\"\n{% endfor %}"
 
 # シンタックスハイライト(遅延読み込み非対応)
 [plugins.syntax-highlighting]
-github = "zdharma/fast-syntax-highlighting"
+github = "zdharma-continuum/fast-syntax-highlighting"
 
 # history をベースに入力コマンドのサジェスト
 [plugins.zsh-autosuggestions]

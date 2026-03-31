@@ -61,17 +61,14 @@ setopt list_types
 # 補完で小文字でも大文字にマッチさせる
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
-# zsh-completions の設定。コマンド補完機能
-autoload -U compinit && compinit -u
-autoload -U +X bashcompinit && bashcompinit
-
-# zsh-completions
-# compinit の実行よりも前に記述する
-if [ -e ${HOMEBREW_DIR}/share/zsh-completions ]; then
-    fpath=(${HOMEBREW_DIR}/share/zsh-completions $fpath)
+# zsh-completions のfpathを設定 (compinit より前に記述)
+if [ -e "${HOMEBREW_PREFIX}/share/zsh-completions" ]; then
+    fpath=("${HOMEBREW_PREFIX}/share/zsh-completions" $fpath)
 fi
 
-# 補完機能を有効にする
+autoload -U +X bashcompinit && bashcompinit
+
+# 補完機能を有効にする (一度だけ呼ぶ)
 autoload -Uz compinit
 compinit -C
 
