@@ -45,6 +45,18 @@ end)
 -- キーバインド
 local act = wezterm.action
 config.keys = {
+  -- ⌘ n で新しいウィンドウを画面右半分に配置して開く
+  {
+    key = 'n',
+    mods = 'CMD',
+    action = wezterm.action_callback(function(win, pane)
+      local screen = wezterm.gui.screens().active
+      local tab, _, new_win = wezterm.mux.spawn_window({})
+      local gui_win = new_win:gui_window()
+      gui_win:set_position(screen.x + math.floor(screen.width / 2), screen.y)
+      gui_win:set_inner_size(math.floor(screen.width / 2), screen.height)
+    end),
+  },
   -- ⌘ + でフォントサイズを大きくする
   {
     key = "+",
@@ -75,9 +87,12 @@ config.keys = {
     mods = "CMD|SHIFT",
     action = wezterm.action { SplitVertical = { domain = "CurrentPaneDomain" } },
   },
-  -- ⌘  { }でタブの移動
-  { key = 'LeftArrow', mods = 'CMD|SHIFT', action = act.MoveTabRelative(-1) },
-  { key = 'RightArrow', mods = 'CMD|SHIFT', action = act.MoveTabRelative(1) },
+  -- ⌘ { } でタブの切り替え（Cmd+Shift+[ / Cmd+Shift+]）
+  { key = '[', mods = 'CMD|SHIFT', action = act.ActivateTabRelative(-1) },
+  { key = ']', mods = 'CMD|SHIFT', action = act.ActivateTabRelative(1) },
+  -- ⌘ ⌥ 左右矢印でタブの切り替え
+  { key = 'LeftArrow',  mods = 'CMD|OPT', action = act.ActivateTabRelative(-1) },
+  { key = 'RightArrow', mods = 'CMD|OPT', action = act.ActivateTabRelative(1) },
 
   -- ⌘ 矢印でペインの移動
   {
@@ -101,6 +116,15 @@ config.keys = {
     action = wezterm.action.ActivatePaneDirection 'Right',
   },
 }
+
+-- 起動時に画面右半分のサイズ・位置で表示
+wezterm.on('gui-startup', function(cmd)
+  local tab, pane, window = wezterm.mux.spawn_window(cmd or {})
+  local gui_win = window:gui_window()
+  local screen = wezterm.gui.screens().active
+  gui_win:set_position(screen.x + screen.width / 2, screen.y)
+  gui_win:set_inner_size(screen.width / 2, screen.height)
+end)
 
 -- システムベル音を有効化（Claude Codeのタスク完了通知用）
 config.audible_bell = "SystemBeep"
