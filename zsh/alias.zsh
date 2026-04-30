@@ -4,8 +4,8 @@
 export OBSIDIAN_VAULT="/Users/annosuke.yokoo/Documents/Obsidian Vault"
 
 alias c='clear'
-alias cl='claude'
-alias cla='claude --permission-mode auto'
+alias cl='mise exec -- claude'
+alias cla='mise exec -- claude --permission-mode auto'
 alias cu='cursor'
 alias re='exec $SHELL -l'
 alias ll='ls -laG'
