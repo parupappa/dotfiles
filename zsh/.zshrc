@@ -19,7 +19,7 @@ compinit
 # colima: start in background if not running
 if command -v colima &>/dev/null; then
   if ! colima status &>/dev/null; then
-    (colima start &) &>/dev/null
+    (colima start &>>"$HOME/.colima/autostart.log" &)
   fi
 fi
 

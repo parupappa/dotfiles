@@ -4,6 +4,9 @@ go = "1.26.1"
 python = "3.13.12"
 node = "25.8.2"
 gh = "latest"
+colima = "latest"
+docker-cli = "latest"
+docker-compose = "latest"
 
 [settings]
 idiomatic_version_file_enable_tools = ["node"]
