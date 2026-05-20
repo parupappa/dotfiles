@@ -63,6 +63,7 @@ EOF
 | `claude/settings.json` | `~/.claude/settings.json` | Claude Code 設定（フック・権限・プラグイン） |
 | `claude/mcp-servers.json` | `~/.claude.json` へ注入 | MCP サーバー定義 |
 | `claude/mcp-snowflake-config.yaml` | `~/.config/mcp/snowflake-config.yaml` | Snowflake MCP 設定 |
+| `launchd/*.plist` | `~/Library/LaunchAgents/*.plist` | Mac ログイン時の自動起動（moomoo OpenD 等） |
 
 ---
 

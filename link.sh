@@ -69,4 +69,13 @@ mkdir -p "$HOME/.config/mcp"
 ln -sfn "$DOTFILES_DIR/claude/mcp-snowflake-config.yaml" "$HOME/.config/mcp/snowflake-config.yaml"
 echo "リンクを作成: $DOTFILES_DIR/claude/mcp-snowflake-config.yaml -> $HOME/.config/mcp/snowflake-config.yaml"
 
+# LaunchAgents（Mac ログイン時の自動起動）
+mkdir -p "$HOME/Library/LaunchAgents"
+for plist in "$DOTFILES_DIR"/launchd/*.plist; do
+    [ -e "$plist" ] || continue
+    link_name="$HOME/Library/LaunchAgents/$(basename "$plist")"
+    ln -sfn "$plist" "$link_name"
+    echo "リンクを作成: $plist -> $link_name"
+done
+
 echo "シンボリックリンクがホームディレクトリ直下に作成されました"
