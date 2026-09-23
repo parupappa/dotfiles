@@ -1,25 +1,41 @@
 {
-  "hooks": {
-    "Stop": [
-      {
-        "matcher": "",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "afplay /System/Library/Sounds/Glass.aiff"
-          }
-        ]
-      }
-    ]
+  "permissions": {
+    "defaultMode": "bypassPermissions"
   },
   "enabledPlugins": {
     "gopls-lsp@claude-plugins-official": true,
     "frontend-design@claude-plugins-official": true,
-    "amazon-location-service@claude-plugins-official": true
+    "amazon-location-service@claude-plugins-official": true,
+    "nuttee-jirattivongvibul@ts-ai-marketplace": true,
+    "trajectory@trajectory": true
+  },
+  "extraKnownMarketplaces": {
+    "ts-ai-marketplace": {
+      "source": {
+        "source": "github",
+        "repo": "DataDog/ts-ai-marketplace"
+      }
+    },
+    "trajectory": {
+      "source": {
+        "source": "directory",
+        "path": "/Users/annosuke.yokoo/.trajectory/claude-marketplace"
+      }
+    }
   },
   "skipDangerousModePermissionPrompt": true,
+  "skipWorkflowUsageWarning": true,
   "skipAutoPermissionPrompt": true,
-  "permissions": {
-    "defaultMode": "auto"
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "afplay /System/Library/Sounds/Glass.aiff 2>/dev/null || true"
+          }
+        ]
+      }
+    ]
   }
 }
